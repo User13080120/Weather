@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.LocationSearchFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:padding="20dp"
+        android:autofillHints="Location"
+        android:background="@color/light_blue_op50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/location_et"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints="null"
+            android:background="@drawable/edit_text_grey_border"
+            android:drawableEnd="@drawable/ic_gps"
+            android:hint="@string/location"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/degree_tv"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/text_view_grey_border"
+            android:gravity="center"
+            android:text="@string/placeholder_c_f"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/location_et"
+            app:layout_constraintTop_toBottomOf="@+id/location_et" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/degree_sw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/degree_tv"
+            app:layout_constraintLeft_toRightOf="@id/degree_tv"
+            app:layout_constraintTop_toTopOf="@+id/degree_tv"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/favourite_tv"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/text_view_grey_border"
+            android:gravity="center"
+            android:text="@string/favourite"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/degree_tv"
+            app:layout_constraintStart_toStartOf="@id/degree_tv"
+            app:layout_constraintTop_toBottomOf="@id/degree_tv" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/favourite_sw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/favourite_tv"
+            app:layout_constraintEnd_toEndOf="@+id/degree_sw"
+            app:layout_constraintLeft_toRightOf="@id/favourite_tv"
+            app:layout_constraintTop_toTopOf="@+id/favourite_tv" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/view_weather_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/light_blue"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="10dp"
+            android:text="@string/view_weather"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/favourite_sw"
+            tools:ignore="UnusedAttribute,TextContrastCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

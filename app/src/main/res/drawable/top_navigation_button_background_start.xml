@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="-5dp"
+    android:insetTop="-5dp"
+    android:insetRight="-5dp">
+
+    <shape android:shape="rectangle">
+        <stroke
+            android:width="0dp"
+            android:color="@color/button_selection_color" />
+        <solid android:color="#00000000" />
+    </shape>
+
+</inset>

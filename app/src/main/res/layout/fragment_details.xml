@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.LocationDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/weather_conditions_sw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_blue_op50"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/weather_iv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:contentDescription="@string/weather_icon"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/weather_iv_right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/weather_iv_left_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/time_font_size"
+                app:layout_constraintStart_toEndOf="@+id/weather_iv"
+                app:layout_constraintTop_toTopOf="@+id/weather_iv" />
+
+            <TextView
+                android:id="@+id/temp_like_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/temp_font_size"
+                app:layout_constraintEnd_toEndOf="@+id/time_tv"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/time_tv"
+                app:layout_constraintTop_toBottomOf="@+id/time_tv" />
+
+            <TextView
+                android:id="@+id/precip_prob_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/precip_wind_font_size"
+                app:layout_constraintStart_toStartOf="@+id/temp_like_tv"
+                app:layout_constraintTop_toBottomOf="@+id/temp_like_tv" />
+
+            <TextView
+                android:id="@+id/wind_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/precip_wind_font_size"
+                app:layout_constraintStart_toStartOf="@+id/precip_prob_tv"
+                app:layout_constraintTop_toBottomOf="@+id/precip_prob_tv" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/precip_prob_tv"
+                app:layout_constraintStart_toEndOf="@+id/precip_prob_tv"
+                app:layout_constraintTop_toTopOf="@+id/precip_prob_tv">
+
+                <ImageView
+                    android:id="@+id/precip_type_rain_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/water_drouplet"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/water_droplet"
+                    android:visibility="gone"
+                    app:layout_constraintDimensionRatio="1:1" />
+
+                <ImageView
+                    android:id="@+id/precip_type_snow_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/snowflake"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/snowflake"
+                    android:visibility="gone"
+                    app:layout_constraintDimensionRatio="1:1" />
+
+                <ImageView
+                    android:id="@+id/precip_type_freezing_rain_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/freezing_rain"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/freezing_rain"
+                    android:visibility="gone"
+                    app:layout_constraintDimensionRatio="1:1" />
+
+                <ImageView
+                    android:id="@+id/precip_type_ice_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/ice"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ice"
+                    android:visibility="gone"
+                    app:layout_constraintDimensionRatio="1:1" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/details_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/circle"
+                android:contentDescription="@string/expand_arrow"
+                android:drawableEnd="@drawable/ic_expand"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_expand"
+                android:textAlignment="center"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/details_iv_right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/details_iv_left_guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/weather_iv_right_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/weather_iv_left_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.04" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/details_iv_right_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.96" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/details_iv_left_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.83" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/details_cl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/light_blue_op50"
+            app:layout_constraintBottom_toTopOf="@+id/hours_rv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weather_conditions_sw"
+            android:animateLayoutChanges="true">
+            <TextView
+                android:id="@+id/feels_like_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/wind_gust_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size"
+                app:layout_constraintStart_toStartOf="@+id/feels_like_tv"
+                app:layout_constraintTop_toBottomOf="@+id/feels_like_tv" />
+
+            <TextView
+                android:id="@+id/humidity_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size"
+                app:layout_constraintStart_toStartOf="@+id/wind_gust_tv"
+                app:layout_constraintTop_toBottomOf="@+id/wind_gust_tv" />
+
+            <TextView
+                android:id="@+id/dew_point_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size"
+                app:layout_constraintStart_toStartOf="@+id/humidity_tv"
+                app:layout_constraintTop_toBottomOf="@+id/humidity_tv" />
+
+            <TextView
+                android:id="@+id/cloud_cover_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size"
+                app:layout_constraintStart_toStartOf="@+id/dew_point_tv"
+                app:layout_constraintTop_toBottomOf="@+id/dew_point_tv" />
+
+            <TextView
+                android:id="@+id/visiblity_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size"
+                app:layout_constraintStart_toStartOf="@+id/cloud_cover_tv"
+                app:layout_constraintTop_toBottomOf="@+id/cloud_cover_tv" />
+
+            <TextView
+                android:id="@+id/sunrise_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size"
+                app:layout_constraintStart_toStartOf="@+id/visiblity_tv"
+                app:layout_constraintTop_toBottomOf="@+id/visiblity_tv" />
+
+            <TextView
+                android:id="@+id/sunset_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size"
+                app:layout_constraintStart_toStartOf="@+id/sunrise_tv"
+                app:layout_constraintTop_toBottomOf="@+id/sunrise_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hours_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/light_blue_op50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_cl" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/next_sixteen_days_btn"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/circle"
+            android:animateLayoutChanges="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="10dp"
+            android:text="@string/next_16_days"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tomorrow_btn"
+            app:layout_constraintTop_toBottomOf="@+id/hours_rv"
+            tools:ignore="UnusedAttribute" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tomorrow_btn"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle"
+            android:animateLayoutChanges="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="10dp"
+            android:text="@string/show_tomorrow"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/next_sixteen_days_btn"
+            app:layout_constraintEnd_toStartOf="@+id/next_sixteen_days_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/last_sixteen_days_btn"
+            app:layout_constraintTop_toTopOf="@+id/next_sixteen_days_btn"
+            tools:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/last_sixteen_days_btn"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle"
+            android:animateLayoutChanges="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="10dp"
+            android:text="@string/last_16_days"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/next_sixteen_days_btn"
+            app:layout_constraintEnd_toStartOf="@+id/tomorrow_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/next_sixteen_days_btn"
+            tools:ignore="UnusedAttribute" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/days_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="100dp"
+            android:background="@color/light_blue_op50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintHeight_max="400dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/last_sixteen_days_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

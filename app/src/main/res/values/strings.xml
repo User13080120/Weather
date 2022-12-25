@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Weather API</string>
+
+    <string name="favourite">Favourite</string>
+    <string name="reload">Reload</string>
+
+    <string name="temp"> "%1$s °%2$s"</string>
+    <string name="feels_like"> "Feels like: %1$s °%2$s"</string>
+    <string name="precipprob"> "Precipitation: %1$s%%"</string>
+    <string name="wind"> "Wind: %1$s %2$s"</string>
+    <string name="wind_gust"> "Wind Gusts: %1$s %2$s"</string>
+    <string name="humidity"> "Humidity: %1$s %%"</string>
+    <string name="dew_point"> "Dew Point: %1$s °%2$s"</string>
+    <string name="cloud_cover"> "Cloud Cover: %1$s %%"</string>
+    <string name="visibility"> "Visibility: %1$s %2$s"</string>
+    <string name="sunrise"> "Sunrise: %1$s"</string>
+    <string name="sunset"> "Sunset: %1$s"</string>
+
+    <string name="show_tomorrow">Tomorrow</string>
+    <string name="show_today">Today</string>
+
+    <string name="you_are_in_offline_mode">You are in offline mode!</string>
+    <string name="locations">Locations</string>
+    <string name="current_nlocation">Current \nLocation</string>
+    <string name="search">Search</string>
+    <string name="background_image_view">Background image view</string>
+    <string name="thunder_rain_icon">Thunder rain icon</string>
+    <string name="placeholder_tomorrow_oct_31">Tomorrow, Oct 31</string>
+    <string name="placeholder_12_6_c">12 / 6 °C</string>
+    <string name="water_drouplet">Water drouplet</string>
+    <string name="snowflake">Snowflake</string>
+    <string name="freezing_rain">Freezing rain</string>
+    <string name="ice">Ice</string>
+    <string name="weather_icon">Weather icon</string>
+    <string name="next_16_days">Next 16 days</string>
+    <string name="last_16_days">Last 16 days</string>
+    <string name="error_occured">Error occurred!</string>
+    <string name="return_from_error">Return</string>
+    <string name="location">Location</string>
+    <string name="placeholder_c_f">°C/°F</string>
+    <string name="view_weather">View weather</string>
+    <string name="placeholder_10_00_pm">10:00 PM</string>
+    <string name="placeholder_11_c">11°C</string>
+    <string name="palceholder_23_c_light_intensity_drizzle">23°C, light intensity drizzle</string>
+    <string name="placeholder_london">London</string>
+    <string name="expand_arrow">expand arrow</string>
+</resources>

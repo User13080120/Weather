@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <ImageView
+        android:id="@+id/main_container_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/default_bg"
+        android:contentDescription="@string/background_image_view"
+        tools:ignore="ImageContrastCheck" />
+
+    <LinearLayout
+        android:id="@+id/top_navigation_ll"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/light_blue_op75"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatToggleButton
+            android:id="@+id/locations_tbtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/transition_top_navigation_button_background"
+            android:checked="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@drawable/toggle_top_navigation_button_text_color"
+            android:textOff="@string/locations"
+            android:textOn="@string/locations"
+            android:textSize="14sp"
+            tools:ignore="TextContrastCheck, UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatToggleButton
+            android:id="@+id/current_location_tbtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/transition_top_navigation_button_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:lines="2"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@drawable/toggle_top_navigation_button_text_color"
+            android:textOff="@string/current_nlocation"
+            android:textOn="@string/current_nlocation"
+            android:textSize="14sp"
+            tools:ignore="TextContrastCheck, UnusedAttribute" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/current_location_sv"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/light_blue_op75"
+        android:layoutDirection="rtl"
+        app:closeIcon="@drawable/ic_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_navigation_ll"
+        app:searchHintIcon="@drawable/ic_search"
+        app:searchIcon="@drawable/ic_search" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_blue_op75"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_location_sv">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            app:menu="@menu/toolbar_menu"
+            app:title="Loading..."
+            app:titleTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/connection_mode_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_blue_op50"
+        android:padding="5dp"
+        android:text="@string/you_are_in_offline_mode"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/appbarlayout"
+        app:layout_constraintTop_toBottomOf="@+id/appbarlayout" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/location_search_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/search"
+
+        android:src="@drawable/ic_search"
+        app:backgroundTint="#00a8f3"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@null"
+        tools:ignore="ImageContrastCheck" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_fcw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connection_mode_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
